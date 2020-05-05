@@ -24,4 +24,4 @@ mkdir -p data/plugins
 cd data/plugins
 
 git clone https://github.com/ovh/ovh-warp10-datasource.git
-
+git clone https://github.com/Vonage/Grafana_Status_panel.git
