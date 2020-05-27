@@ -1,29 +1,14 @@
 #!/bin/bash
+set -e
+set -x
 
-go get github.com/grafana/grafana
-cd $GOPATH/src/github.com/grafana/grafana
 if [[ -z "${GRAFANA_VERSION}" ]]; then
   echo "No GRAFANA_VERSION environment variable set"
   exit 1
 fi
-
-git checkout "${GRAFANA_VERSION}"
-go get -v all
-go run build.go build
-
-mkdir -p $GOPATH/bin/
-
-for bin in grafana-cli grafana-server; do
-  cp $GOPATH/src/github.com/grafana/grafana/bin/linux-amd64/${bin} $GOPATH/bin/
-done
-
-yarn install --pure-lockfile
-yarn build
-
-mkdir -p data/plugins
-cd data/plugins
-
-git clone https://github.com/ovh/ovh-warp10-datasource.git
-git clone https://github.com/Vonage/Grafana_Status_panel.git
-git clone https://github.com/grafana/grafana-polystat-panel.git
-git clone https://github.com/grafana/piechart-panel.git
+wget https://dl.grafana.com/oss/release/grafana-$GRAFANA_VERSION.linux-amd64.tar.gz
+tar xvzf grafana-$GRAFANA_VERSION.linux-amd64.tar.gz
+grafana-$GRAFANA_VERSION/bin/grafana-cli plugins install ovh-warp10-datasource
+grafana-$GRAFANA_VERSION/bin/grafana-cli plugins install vonage-status-panel
+grafana-$GRAFANA_VERSION/bin/grafana-cli plugins install grafana-polystat-panel
+grafana-$GRAFANA_VERSION/bin/grafana-cli plugins install grafana-piechart-panel
