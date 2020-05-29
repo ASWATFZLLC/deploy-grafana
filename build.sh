@@ -8,6 +8,7 @@ if [[ -z "${GRAFANA_VERSION}" ]]; then
 fi
 wget https://dl.grafana.com/oss/release/grafana-$GRAFANA_VERSION.linux-amd64.tar.gz
 tar xvzf grafana-$GRAFANA_VERSION.linux-amd64.tar.gz
+sleep 30
 export GF_PATHS_PLUGINS=grafana-$GRAFANA_VERSION/data/plugins
 grafana-$GRAFANA_VERSION/bin/grafana-cli --pluginsDir grafana-$GRAFANA_VERSION/data/plugins plugins install ovh-warp10-datasource
 grafana-$GRAFANA_VERSION/bin/grafana-cli --pluginsDir grafana-$GRAFANA_VERSION/data/plugins plugins install vonage-status-panel
