@@ -18,3 +18,4 @@ grafana-$GRAFANA_VERSION/bin/grafana-cli --pluginsDir grafana-$GRAFANA_VERSION/d
 grafana-$GRAFANA_VERSION/bin/grafana-cli --pluginsDir grafana-$GRAFANA_VERSION/data/plugins plugins install grafana-github-datasource
 grafana-$GRAFANA_VERSION/bin/grafana-cli --pluginsDir grafana-$GRAFANA_VERSION/data/plugins plugins install marcusolsson-json-datasource
 grafana-$GRAFANA_VERSION/bin/grafana-cli --pluginsDir grafana-$GRAFANA_VERSION/data/plugins plugins install redis-datasource
+grafana-$GRAFANA_VERSION/bin/grafana-cli --pluginsDir grafana-$GRAFANA_VERSION/data/plugins plugins install grafana-worldmap-panel
