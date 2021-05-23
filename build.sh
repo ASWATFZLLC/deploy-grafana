@@ -24,4 +24,5 @@ mkdir -p data/plugins
 cd data/plugins
 
 git clone https://github.com/ovh/ovh-warp10-datasource.git
-
+git clone https://github.com/cloudflare/cloudflare-grafana-app
+git clone https://github.com/marcusolsson/grafana-calendar-panel.git
